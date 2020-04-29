@@ -1,0 +1,65 @@
+Introduction to GIT
+
+1. Go to github.com and create a new repository.
+
+2. Launch GIT Bash on Windows and go to the folder that you want to connect to that repository.
+
+3. Run the following command to initialise the repository
+
+	git init
+
+	This creates a folder .git with some files in it.
+
+4. Type "git status" to check that things are OK.
+
+5. Create a test file (e.g., test.txt) 
+
+6. Connect your folder to the git repository at github.com. Use the following command:
+
+	git remote add origin git@github.com:amathenge/testrepo.git
+
+	This assumes that the repository I created is called "testrepo"
+
+Note: since I'm using SSH on this machine, I used the "git@github.com..." syntax. The connection 
+can also be created by typing the following:
+
+	git remote add origin https://github.com/amathenge/testrepo.git
+
+With both, you'll be asked for credentials. With the "@" syntax, you'll be asked for the SSH key passphrase.
+For the https syntax, you'll be asked for the password to github.com
+
+7. Now add the file you created (test.txt) to the list of files to be tracked:
+
+	git add test.txt
+
+You can also add all the files in the folder by typing:
+
+	git add .
+
+8. Commit the file(s)
+
+	git commit -m "Initial version"
+
+	The comment is a MUST
+
+9. Push the files to the remote repository
+
+	git push
+
+You can also push a single file.
+
+Note: if you made a mistake and don't want a file committed, you can un-commit by
+
+	git reset --soft HEAD^
+	or
+	git reset --soft HEAD~1
+
+	then
+
+	git reset HEAD /path/to/file
+
+	then
+
+	git commit -c ORIG_HEAD
+
+The last command is if there were files to commit.
